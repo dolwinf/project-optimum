@@ -22,20 +22,6 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/views/login.html"));
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    // db.Example.findOne({ where: { id: req.params.id } }).then(function(
-    //   dbExample
-    // ) {
-    //   res.render("example", {
-    //     example: dbExample
-    //   });
-    // });
-  });
-
-  app.get("/success", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/views/thanks.html"));
-  });
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.send("404");
