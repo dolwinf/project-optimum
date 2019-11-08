@@ -1,6 +1,8 @@
 var db = require("../models");
 var bcrypt = require("bcrypt");
 var { check, validationResult } = require("express-validator/check");
+var jwt = require("jsonwebtoken");
+const auth = require("../middleware/auth");
 
 module.exports = function(app) {
 	app.post(
@@ -22,15 +24,26 @@ module.exports = function(app) {
 				})
 				.then(function(data) {
 					res.json(data);
-					res.redirect("/success");
-				})
-				.catch(function(error) {
-					res.json(error);
+					//Grab the user's details from the response
+					var id = data[0].dataValues.id;
+					// var email = data[0].dataValues.email;
+					var payload = {
+						user: {
+							id
+						}
+					};
+					jwt.sign(payload, "secret", { expiresIn: 36000 }, function(
+						err,
+						token
+					) {
+						if (err) throw err;
+						console.log(token);
+					});
 				});
 		}
 	);
 
-	// Create a new user
+	// Create a new user and encrypt hash password using bcrypt and store encrypted password in the database
 	app.post(
 		"/api/register",
 		[
@@ -54,6 +67,20 @@ module.exports = function(app) {
 						})
 						.then(function(data) {
 							res.json(data);
+							// var id = data[0].dataValues.id;
+							// var email = data[0].dataValues.email;
+							// var payload = {
+							// 	user: {
+							// 		id
+							// 	}
+							// };
+							// jwt.sign(payload, "secret", { expiresIn: 36000 }, function(
+							// 	err,
+							// 	token
+							// ) {
+							// 	if (err) throw err;
+							// 	console.log(token);
+							// });
 						})
 						.catch(function(err) {
 							res.json(err);
@@ -63,6 +90,9 @@ module.exports = function(app) {
 		}
 	);
 
+	app.get("/protected", auth, function(req, res) {
+		res.send("Protected route");
+	});
 	// Delete an example by id
 	app.delete("/api/examples/:id", function(req, res) {
 		// db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
