@@ -3,7 +3,7 @@ var { check, validationResult } = require("express-validator/check");
 
 module.exports = function(app) {
   app.post(
-    "/api/users/login",
+    "/api/login",
     [
       check("email", "Email is required").isEmail(),
       check("password", "Password is required").isLength({ min: 6 })

@@ -14,7 +14,7 @@ $(".loginbtn").on("click", function(data) {
     email: $(".email").val(),
     password: $(".password").val()
   };
-  $.post("/api/users/login", loginData).then(function(data) {
+  $.post("/api/login", loginData).then(function(data) {
     console.log(data);
   });
 });
