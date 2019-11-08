@@ -4,7 +4,7 @@ $(".registerbtn").on("click", function(data) {
     password: $(".password").val(),
     passwordr: $(".passwordr").val()
   };
-  $.post("/api/users", userData).then(function(data) {
+  $.post("/api/register", userData).then(function(data) {
     console.log(data);
   });
 });
