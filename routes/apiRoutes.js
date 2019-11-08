@@ -16,29 +16,41 @@ module.exports = function(app) {
 			if (!errors.isEmpty()) {
 				return res.status(400).json({ errors: errors.array() });
 			}
+
 			db.user
-				.findAll({
+				.findOne({
 					where: {
 						email: req.body.email
 					}
 				})
 				.then(function(data) {
-					res.json(data);
+					// res.json(data);
+
 					//Grab the user's details from the response
-					var id = data[0].dataValues.id;
-					// var email = data[0].dataValues.email;
-					var payload = {
-						user: {
-							id
+					var id = data.dataValues.id;
+					var password = data.dataValues.password;
+
+					bcrypt.compare(req.body.password, password, function(err, resp) {
+						if (!resp) {
+							res.send("Password incorrect");
+						} else {
+							res.json(data);
+							var payload = {
+								user: {
+									id
+								}
+							};
+							jwt.sign(payload, "secret", { expiresIn: 36000 }, function(
+								err,
+								token
+							) {
+								if (err) throw err;
+								console.log(token);
+							});
 						}
-					};
-					jwt.sign(payload, "secret", { expiresIn: 36000 }, function(
-						err,
-						token
-					) {
-						if (err) throw err;
-						console.log(token);
 					});
+
+					// var email = data[0].dataValues.email;
 				});
 		}
 	);
