@@ -4,7 +4,7 @@ $(".registerbtn").on("click", function(data) {
     password: $(".password").val(),
     passwordr: $(".passwordr").val()
   };
-  $.post("/api/users", userData).then(function(data) {
+  $.post("/api/register", userData).then(function(data) {
     console.log(data);
   });
 });
@@ -14,7 +14,7 @@ $(".loginbtn").on("click", function(data) {
     email: $(".email").val(),
     password: $(".password").val()
   };
-  $.post("/api/users/login", loginData).then(function(data) {
+  $.post("/api/login", loginData).then(function(data) {
     console.log(data);
   });
 });
