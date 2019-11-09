@@ -2,7 +2,6 @@
 var express = require("express");
 
 var db = require("./models");
-
 var app = express();
 var PORT = process.env.PORT || 3000;
 
@@ -21,5 +20,8 @@ db.sequelize.sync().then(function() {
     console.log("Listening on port", PORT);
   });
 });
+
+
+
 
 module.exports = app;
