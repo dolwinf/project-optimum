@@ -23,6 +23,18 @@ $(".loginbtn").on("click", function(e) {
     data: loginData
   }).then(function(data) {
     console.log(data.token);
-    window.location.href = "/landing";
+    localStorage.setItem("x-auth-token", data.token);
+    var returnedToken = localStorage.getItem("x-auth-token");
+    $.ajax({
+      method: "GET",
+      url: "/landing",
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader("x-auth-token", returnedToken);
+      },
+      success: function(xhr) {
+        // xhr.setRequestHeader("x-auth-token", returnedToken);
+        window.location.href = "/landing";
+      }
+    });
   });
 });
