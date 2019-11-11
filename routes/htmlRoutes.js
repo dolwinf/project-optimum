@@ -7,7 +7,7 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/views/index.html"));
   });
 
-  app.get("/landing", function(req, res) {
+  app.get("/landing", auth, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/views/landing.html"));
   });
 
