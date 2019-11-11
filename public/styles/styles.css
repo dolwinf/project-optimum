@@ -11,11 +11,10 @@
 }
 
 .login-box {
-  max-width: 400px;
-  min-width:300px;
+  max-width: 300px;
   position: absolute;
   left:50%;
-  top:50%;
+  top:56%;
   transform: translate(-50%, -50%)
 }
 
@@ -26,4 +25,34 @@
 h1 {
   color: #f7b733;
   font-weight: bold;
+}
+
+.loginbtn {
+  background-color: #f7b733;
+  border-color:#f7b733
+}
+ .loginbtn:hover {
+  background-color: #f7b733;
+  border-color:#f7b733
+}
+
+.swapnav {
+  border-bottom: 6px solid #f7b733;
+}
+
+a {
+  color:#fe491a
+}
+
+.navbar-brand {
+  font-family: fantasy;
+  font-size: 25px;
+}
+
+.nav-link:hover {
+  color:#58c2b4;
+}
+
+.navbar-brand:hover {
+  color:#58c2b4;
 }
