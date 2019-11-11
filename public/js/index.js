@@ -12,7 +12,7 @@ $(".registerbtn").on("click", function(e) {
 });
 
 $(".loginbtn").on("click", function(e) {
-	// e.preventDefault();
+	e.preventDefault();
 	var loginData = {
 		email: $(".email").val(),
 		password: $(".password").val()
@@ -27,11 +27,12 @@ $(".loginbtn").on("click", function(e) {
 	});
 });
 
-// var returnedToken = localStorage.getItem("x-auth-token");
-// $.ajax({
-//   method: "GET",
-//   url: "/landing",
-//   beforeSend: function(xhr) {
-//     xhr.setRequestHeader("x-auth-token", returnedToken);
-//   }
-// });
+$(".logout").on("click", function(e) {
+	e.preventDefault();
+	$.ajax({
+		method: "GET",
+		url: "/logout"
+	}).then(function() {
+		window.location.href = "/";
+	});
+});

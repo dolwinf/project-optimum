@@ -69,26 +69,22 @@ module.exports = function(app) {
 						})
 						.then(function(data) {
 							var id = data.dataValues.id;
-							var password = data.dataValues.password;
 
-							bcrypt.compare(req.body.password, password, function(err, resp) {
-								if (!resp) {
-									res.send("Password incorrect");
-								} else {
-									var token = jwt.sign({ user: id }, "secret", {
-										expiresIn: 36000
-									});
-									res.json({ data, token });
-								}
+							var token = jwt.sign({ user: id }, "secret", {
+								expiresIn: 36000
 							});
+
+							res.cookie("token", token);
+							res.json(data);
 						});
 				});
 			}
 		}
 	);
 
-	app.get("/protected", auth, function(req, res) {
-		res.send("Protected route");
+	app.get("/logout", function(req, res) {
+		res.clearCookie("token");
+		res.end();
 	});
 	// Delete an example by id
 	app.delete("/api/examples/:id", function(req, res) {
