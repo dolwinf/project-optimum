@@ -1,6 +1,6 @@
 var db = require("../models");
 var bcrypt = require("bcrypt");
-var { check, validationResult } = require("express-validator/check");
+var { check, validationResult } = require("express-validator");
 var jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth");
 
@@ -37,7 +37,8 @@ module.exports = function(app) {
 							var token = jwt.sign({ user: id }, "secret", {
 								expiresIn: 36000
 							});
-							res.json({ data, token });
+							res.cookie("token", token);
+							res.json(data);
 						}
 					});
 				});
@@ -67,34 +68,23 @@ module.exports = function(app) {
 							password: hash
 						})
 						.then(function(data) {
-							res.json(data);
+							var id = data.dataValues.id;
 
-							// var id = data[0].dataValues.id;
-							// var email = data[0].dataValues.email;
-							// var payload = {
-							// 	user: {
-							// 		id
-							// 	}
-							// };
-							// jwt.sign(payload, "secret", { expiresIn: 36000 }, function(
-							// 	err,
-							// 	token
-							// ) {
-							// 	if (err) throw err;
-							// 	console.log(token);
-							// });
-						})
-						.catch(function(err) {
-							res.json(err);
+							var token = jwt.sign({ user: id }, "secret", {
+								expiresIn: 36000
+							});
+
+							res.cookie("token", token);
+							res.json(data);
 						});
 				});
 			}
-			return res.redirect("/profile");
 		}
 	);
 
-	app.get("/protected", auth, function(req, res) {
-		res.send("Protected route");
+	app.get("/logout", function(req, res) {
+		res.clearCookie("token");
+		res.end();
 	});
 	// Delete an example by id
 	app.delete("/api/examples/:id", function(req, res) {
