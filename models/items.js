@@ -1,10 +1,10 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
 	var Item = sequelize.define("Item", {
-		CategoryID: DataTypes.INTEGER,
+		Category: DataTypes.INTEGER,
 		Name: DataTypes.STRING,
 		Description: DataTypes.STRING,
 		Status: DataTypes.STRING,
-		EstimateValue: DataTypes.DECIMAL,
+		ImageURL: DataTypes.STRING,
 		UserID: DataTypes.INTEGER
 	});
 	return Item;
