@@ -34,23 +34,12 @@ module.exports = function(app) {
 						if (!resp) {
 							res.send("Password incorrect");
 						} else {
-							res.json(data);
-							var payload = {
-								user: {
-									id
-								}
-							};
-							jwt.sign(payload, "secret", { expiresIn: 36000 }, function(
-								err,
-								token
-							) {
-								if (err) throw err;
-								console.log(token);
+							var token = jwt.sign({ user: id }, "secret", {
+								expiresIn: 36000
 							});
+							res.json({ data, token });
 						}
 					});
-
-					// var email = data[0].dataValues.email;
 				});
 		}
 	);
@@ -79,6 +68,7 @@ module.exports = function(app) {
 						})
 						.then(function(data) {
 							res.json(data);
+
 							// var id = data[0].dataValues.id;
 							// var email = data[0].dataValues.email;
 							// var payload = {
@@ -99,6 +89,7 @@ module.exports = function(app) {
 						});
 				});
 			}
+			return res.redirect("/profile");
 		}
 	);
 
