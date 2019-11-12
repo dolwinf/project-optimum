@@ -2,7 +2,11 @@
   line-height: 2.5;
 }
 
-.background {
+.navbar {
+  background-color: aliceblue;
+}
+
+body {
   background-color: #49bcab;
   width: 100%;
   height: 100%;
@@ -20,7 +24,7 @@
   width: 100%;
 }
 
-h1 {
+.card-title {
   color: #f7b733;
   font-weight: bold;
 }

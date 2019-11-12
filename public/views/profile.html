@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,119 +14,100 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg swapnav">
-      <a class="navbar-brand" href="/">Swapz</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Listing</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div class="container-fluid background">
+  <nav class="navbar navbar-expand-lg swapnav">
+    <a class="navbar-brand" href="/">Swapz</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Listing</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
 
     </br>
-  <div class="container">
-    <div class="col-sm-12">
-      <div class="row">
-        <div class="col-sm-12">
+    <div class="container">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-12">
 
-          <!-- Profile -->
-          <div class="card" id="profile">
-            <h3 class="card-title">Edit User Details</h3>
-            <div class="row">
-              <div class="col-md">
-                <div class="card-body">
+            <!-- Profile -->
+            <div class="card" id="profile">
+              <h3 class="card-title">Edit User Details</h3>
+              <div class="row">
+                <div class="col-md">
+                  <div class="card-body">
 
-                  <form id="profile-form">
-                    <div class="form-row">
-                      <div class="form-group col-md-6">
-                        <label for="firstname">First Name</label>
-                        <input id="firstname" name="firstname" type="text" class="form-control" value="">
-                      </div>
-                      <div class="form-group col-md-6">
-                        <label for="lastname">Last Name</label>
-                        <input id="lastname" name="lastname" type="text" class="form-control" value="">
-                      </div>
-                      <div class="form-group col-md-6">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" value="">
-                      </div>
-                      <div class="form-group col-md-6">
+                    <form id="profile-form">
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="firstname">First Name</label>
+                          <input id="firstname" name="firstname" type="text" class="form-control" value="">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="lastname">Last Name</label>
+                          <input id="lastname" name="lastname" type="text" class="form-control" value="">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="email">Email</label>
+                          <input type="email" class="form-control" id="email" value="">
+                        </div>
+                        <div class="form-group col-md-6">
                           <label for="phone">Phone</label>
-                          <input type="number" class="form-control" id="phone" value="">
+                          <input type="text" class="form-control" id="phone" value="">
                         </div>
 
-                    </div>
-                    <div class="form-group">
-                      <label for="inputAddress">Address</label>
-                      <input type="text" class="form-control" id="inputAddress" value="">
-                    </div>
-                    <div class="form-row">
-
-                      <div class="form-group col-md-4">
-                        <label for="inputState">State</label>
-                        <select id="inputState" class="form-control">
-                          <option selected>Choose...</option>
-                          <option>Australian Capital Territory</option>
-                          <option>New South Wales</option>
-                          <option>Queensland</option>
-                          <option>Victoria</option>
-                          <option>Western Australia</option>
-                          <option>Northern Territory</option>
-                          <option>South Australia</option>
-                          <option>Tasmania</option>
-                        </select>
                       </div>
-                      <div class="form-group col-md-2">
-                        <label for="postcode">Postcode</label>
-                        <input type="text" class="form-control" id="postcode">
+                      <div class="form-group">
+                        <label for="inputAddress">Address</label>
+                        <input type="text" class="form-control" id="inputAddress" value="">
                       </div>
-                    </div>
+                  </div>
                     <button class="btn btn-primary" id="profile-save">Save</button>
                   </form>
+
                 </div>
               </div>
             </div>
-          </div>
-          </br>
+            </br>
 
-          <!-- New Item -->
-          <div class="card" id="add-item">
-            <h3 class="card-title">Add Item</h3>
-            <div class="row">
-              <div class="col-md">
-                <form class="card-body" id="add-form" method="POST">
-                  <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label for="item">Item Name</label>
-                      <input type="text" class="form-control" name="name" id="item-name" value="">
+            <!-- New Item -->
+            <div class="card" id="add-item">
+              <h3 class="card-title">Add Item</h3>
+              <div class="row">
+                <div class="col-md">
+                  <form class="card-body" id="add-form">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="item">Item Name</label>
+                        <input type="text" class="form-control" name="name" id="item-name" value="">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="item">Item Image URL</label>
+                        <input type="text" class="form-control" name="ImageURL" id="item-image" value="">
+                      </div>
                     </div>
-                    <div class="form-group col-md-6">
-                      <label for="item">Item Image URL</label>
-                      <input type="text" class="form-control" name="ImageURL" id="item-image" value="">
+                    <div class="form-group">
+                      <label for="description">Item Description</label>
+                      <textarea class="form-control" id="description" name="Description" rows="3"></textarea>
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="description">Item Description</label>
-                    <textarea class="form-control" id="description" name="Description" rows="3"></textarea>
-                  </div>
-                  <button class="btn btn-primary">Create</button>
-                </form>
+
+                    <button type="submit" class="btn btn-primary">Create</button>
+                  </form>
+                </div>
 
               </div>
             </div>
+            </br>
           </div>
-          </br>
-
         </div>
       </div>
     </div>
