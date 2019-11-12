@@ -20,7 +20,7 @@
   width: 100%;
 }
 
-h1 {
+.card-title {
   color: #f7b733;
   font-weight: bold;
 }
