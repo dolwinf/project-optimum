@@ -31,13 +31,3 @@ $(".loginbtn").on("click", function(e) {
     window.location.href = "/landing";
   });
 });
-
-$(".logout").on("click", function(e) {
-  e.preventDefault();
-  $.ajax({
-    method: "GET",
-    url: "/logout"
-  }).then(function() {
-    window.location.href = "/";
-  });
-});

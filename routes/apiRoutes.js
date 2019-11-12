@@ -82,8 +82,14 @@ module.exports = function(app) {
     }
   );
 
+  app.get("/getdata", function(req, res) {
+    db.item.findAll({}).then(function(data) {
+      res.json(data);
+    });
+  });
   app.get("/logout", function(req, res) {
     res.clearCookie("token");
+    res.clearCookie("localhost");
     res.end();
   });
   // Delete an example by id
