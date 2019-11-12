@@ -28,6 +28,7 @@ $(".loginbtn").on("click", function(e) {
     data: loginData
   }).then(function(data) {
     console.log(data);
+    localStorage.setItem("email", data.email);
     window.location.href = "/landing";
   });
 });

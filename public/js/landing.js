@@ -26,3 +26,8 @@ window.onload = function() {
     });
   });
 };
+
+$(".editProfile").on("click", function(e) {
+  e.preventDefault();
+  window.location.href = "/profile";
+});
