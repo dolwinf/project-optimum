@@ -54,6 +54,8 @@ module.exports = function(app) {
       check("passwordr", "Please re-enter your password").isLength({ min: 6 })
     ],
     function(req, res) {
+      var firstName = req.body.firstName;
+      var lastName = req.body.lastName;
       var email = req.body.email;
       var password = req.body.password;
       var passwordr = req.body.passwordr;
@@ -65,7 +67,9 @@ module.exports = function(app) {
           db.user
             .create({
               email: email,
-              password: hash
+              password: hash,
+              firstName,
+              lastName
             })
             .then(function(data) {
               var id = data.dataValues.id;
@@ -110,7 +114,11 @@ module.exports = function(app) {
     db.user
       .update(
         {
-          firstName: req.body.name
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          email: req.body.email,
+          mobile: req.body.mobile,
+          homeAddress: req.body.homeAddress
         },
         {
           where: {
@@ -122,6 +130,16 @@ module.exports = function(app) {
         res.json(data);
       });
   });
+
+  app.post("/createItem", function(req, res){
+    db.item.create({
+      Name: req.body.itemName,
+      Description: req.body.itemDescription,
+      ImageURL: req.body.itemURL
+    }).then(function(data){
+      console.log(data)
+    })
+  })
 
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
