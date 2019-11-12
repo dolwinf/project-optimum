@@ -36,6 +36,7 @@ h1 {
 
 .swapnav {
   border-bottom: 6px solid #f7b733;
+  background: white;
 }
 
 a {
@@ -62,3 +63,36 @@ body {
 .card {
   background-color: paleturquoise;
 }
+
+
+
+.banner-index {
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+
+}
+.banner2 {
+  background-color:#f7b733;
+  position: absolute;
+  left: 50%;
+  top: 56%;
+  transform: translate(-50%, -50%);
+  height:300px;
+  padding: 30px;
+}
+.bannerTitle {
+  color:#fe491a;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
+  font-weight:bolder;
+  width: 100%;
+}
+
+.indexbutton {
+width: 70%;
+margin: 0 auto;
+margin-top: 5px;
+}
+
