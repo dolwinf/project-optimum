@@ -17,7 +17,7 @@
 
   <div class="container">
     <header>
-      <h2 class="display-4">SwapZ</h2>
+      <h2 class="display-4 navbar-brand">SwapZ</h2>
     </header>
     <h5>Welcome Back <span class='username'></span>!</h5>
   </div>
@@ -44,7 +44,6 @@
             <div class="row">
               <div class="col-md">
                 <div class="card-body">
-                  <div>User Name: <span class='username'></span> </div>
                   <h5>Edit User Details</h5>
                   <form id="profile-form">
                     <div class="form-row">
@@ -58,24 +57,19 @@
                       </div>
                       <div class="form-group col-md-6">
                         <label for="inputEmail4">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                        <input type="email" class="form-control" id="inputEmail4" value="">
                       </div>
                       <div class="form-group col-md-6">
                         <label for="inputPassword4">Password</label>
-                        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                        <input type="password" class="form-control" id="inputPassword4" value="">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="inputAddress">Address</label>
-                      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                    </div>
-                    <div class="form-group">
-                      <label for="inputAddress2">Address 2</label>
-                      <input type="text" class="form-control" id="inputAddress2"
-                        placeholder="Apartment, studio, or floor">
+                      <input type="text" class="form-control" id="inputAddress" value="">
                     </div>
                     <div class="form-row">
-                      <div class="form-group col-md-6">
+                      <div class="form-group ">
                         <label for="inputCity">City</label>
                         <input type="text" class="form-control" id="inputCity">
                       </div>
@@ -97,8 +91,8 @@
                         <label for="postcode">Postcode</label>
                         <input type="text" class="form-control" id="postcode">
                       </div>
-                      <button type="submit" class="btn btn-primary">Save</button>
                     </div>
+                    <button type="submit" class="btn btn-primary" id="profile-save">Save</button>
                   </form>
                 </div>
               </div>
@@ -113,42 +107,20 @@
               <div class="col-md">
                 <form class="card-body" id="add-form">
                   <div class="form-row">
-                    <div class="form-group">
+                    <div class="form-group col-md-6">
                       <label for="item">Item Name</label>
                       <input type="text" class="form-control" name="name" id="item-name" value="">
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="descriptionTextarea">Item Description</label>
-                    <textarea class="form-control" id="descriptionTextarea" rows="3"></textarea>
-                  </div>
- 
-                  <div class="form-row">
                     <div class="form-group col-md-6">
-                      <label for="inputCity">City</label>
-                      <input type="text" class="form-control" id="inputCity">
-                    </div>
-                    <div class="form-group col-md-4">
-                      <label for="inputState">State</label>
-                      <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
-                        <option>...</option>
-                      </select>
-                    </div>
-                    <div class="form-group col-md-2">
-                      <label for="inputZip">Zip</label>
-                      <input type="text" class="form-control" id="inputZip">
+                      <label for="item">Item Image URL</label>
+                      <input type="text" class="form-control" name="ImageURL" id="item-image" value="">
                     </div>
                   </div>
                   <div class="form-group">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="gridCheck">
-                      <label class="form-check-label" for="gridCheck">
-                        Check me out
-                      </label>
-                    </div>
+                    <label for="description">Item Description</label>
+                    <textarea class="form-control" id="description" name="Description" rows="3"></textarea>
                   </div>
-                  <button type="submit" class="btn btn-primary">Sign in</button>
+                  <button type="submit" class="btn btn-primary">Create</button>
                 </form>
 
               </div>
@@ -171,8 +143,6 @@
                   <li class="list-group-item">
                     <h3 class="item-name"></h3>
                     <img class="item-image" src="#" alt="Item's Name">
-
-                    <span class="badge badge-primary badge-pill"></span>
                   </li>
               </div>
             </div>
