@@ -17,9 +17,9 @@
 
   <div class="container">
     <header>
-      <h2 class="display-4">SwapZ</h2>
+      <h2 class="display-4 navbar-brand">SwapZ</h2>
     </header>
-    <h5>Welcome Back <span id='username'></span>!</h5>
+    <h5>Welcome Back <span class='username'></span>!</h5>
   </div>
 
   <div class="container">
@@ -28,7 +28,7 @@
         <div class="col-sm-2">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Profile</a>
+              <a class="nav-link" href="#">Profile</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Trading Market</a>
@@ -40,10 +40,55 @@
 
           <!-- Profile -->
           <div class="card" id="profile">
-            <h3 class="card-title">My Profile</h3>
+            <h3 class="card-title">Edit User Details</h3>
             <div class="row">
               <div class="col-md">
+                <div class="card-body">
 
+                  <form id="profile-form">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="firstname">First Name</label>
+                        <input id="firstname" name="firstname" type="text" class="form-control" value="">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="lastname">Last Name</label>
+                        <input id="lastname" name="lastname" type="text" class="form-control" value="">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4" value="">
+                      </div>
+
+                    </div>
+                    <div class="form-group">
+                      <label for="inputAddress">Address</label>
+                      <input type="text" class="form-control" id="inputAddress" value="">
+                    </div>
+                    <div class="form-row">
+
+                      <div class="form-group col-md-4">
+                        <label for="inputState">State</label>
+                        <select id="inputState" class="form-control">
+                          <option selected>Choose...</option>
+                          <option>Australian Capital Territory</option>
+                          <option>New South Wales</option>
+                          <option>Queensland</option>
+                          <option>Victoria</option>
+                          <option>Western Australia</option>
+                          <option>Northern Territory</option>
+                          <option>South Australia</option>
+                          <option>Tasmania</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label for="postcode">Postcode</label>
+                        <input type="text" class="form-control" id="postcode">
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="profile-save">Save</button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -54,38 +99,32 @@
             <h3 class="card-title">Add Item</h3>
             <div class="row">
               <div class="col-md">
+                <form class="card-body" id="add-form">
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="item">Item Name</label>
+                      <input type="text" class="form-control" name="name" id="item-name" value="">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="item">Item Image URL</label>
+                      <input type="text" class="form-control" name="ImageURL" id="item-image" value="">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="description">Item Description</label>
+                    <textarea class="form-control" id="description" name="Description" rows="3"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Create</button>
+                </form>
 
               </div>
             </div>
           </div>
           </br>
 
-          <!-- My Items -->
-          <div class="card">
-            <h3 class="card-title">My Items</h3>
-            <div class="row">
-              <div class="col-md">
-                <ul class="list-group" id="my-items">
-                  <li class="list-group-item">
-                    <h3 class="item-name"></h3>
-                    <img class="item-image" src="#" alt="Item's Name">
-
-                    <span class="badge badge-primary badge-pill"></span>
-                  </li>
-                  <li class="list-group-item">
-                    <h3 class="item-name"></h3>
-                    <img class="item-image" src="#" alt="Item's Name">
-
-                    <span class="badge badge-primary badge-pill"></span>
-                  </li>
-              </div>
-            </div>
-            </br>
-          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
   <!-- TODO remove after connected -->
   <script src="../js/profile.js" type="text/javascript"></script>
