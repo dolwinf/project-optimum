@@ -2,20 +2,18 @@
   line-height: 2.5;
 }
 
-
 .background {
   background-color: #49bcab;
   width: 100%;
   height: 100%;
-
 }
 
 .login-box {
   max-width: 300px;
   position: absolute;
-  left:50%;
-  top:56%;
-  transform: translate(-50%, -50%)
+  left: 50%;
+  top: 56%;
+  transform: translate(-50%, -50%);
 }
 
 .form-widith {
@@ -29,11 +27,11 @@ h1 {
 
 .loginbtn {
   background-color: #f7b733;
-  border-color:#f7b733
+  border-color: #f7b733;
 }
- .loginbtn:hover {
+.loginbtn:hover {
   background-color: #f7b733;
-  border-color:#f7b733
+  border-color: #f7b733;
 }
 
 .swapnav {
@@ -41,7 +39,7 @@ h1 {
 }
 
 a {
-  color:#fe491a
+  color: #fe491a;
 }
 
 .navbar-brand {
@@ -50,9 +48,13 @@ a {
 }
 
 .nav-link:hover {
-  color:#58c2b4;
+  color: #58c2b4;
 }
 
 .navbar-brand:hover {
-  color:#58c2b4;
+  color: #58c2b4;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
 }

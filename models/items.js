@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Item = sequelize.define("Item", {
+  var item = sequelize.define("item", {
     Category: DataTypes.INTEGER,
     Name: DataTypes.STRING,
     Description: DataTypes.STRING,
@@ -7,8 +7,8 @@ module.exports = function(sequelize, DataTypes) {
     ImageURL: DataTypes.STRING,
     UserID: DataTypes.INTEGER
   });
-  return Item;
+  return item;
 };
 
 //seed
-//insert into items (id, CategoryID, Name, Description, Status, UserID, createdAt, updatedAt) values(3, 3, "Motorbike", "Exchanging my Motorbike for your Car", "Swap", 1, "9999-12-31 23:59:59", "9999-12-31 23:59:59")
+//insert into items (Category, Name, Description, Status, ImageURL, UserID, createdAt, updatedAt) values(1, "Motorbike", "Exchanging my Motorbike for your Car", "Available", "http://crossfiremotorcycles.com/wp/wp-content/uploads/2017/11/crossfire-cf50-motorbike-dirt-children-kids-red-1.jpg", 1, "9999-12-31 23:59:59", "9999-12-31 23:59:59")
