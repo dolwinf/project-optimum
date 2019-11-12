@@ -14,29 +14,30 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg swapnav">
+      <a class="navbar-brand" href="/">Swapz</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Listing</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid background">
 
-  <div class="container">
-    <header>
-      <h2 class="display-4 navbar-brand">SwapZ</h2>
-    </header>
-    <h5>Welcome Back <span class='username'></span>!</h5>
-  </div>
-
+    </br>
   <div class="container">
     <div class="col-sm-12">
       <div class="row">
-        <div class="col-sm-2">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Trading Market</a>
-            </li>
-          </ul>
-        </div>
-        <div class="card col-sm-10">
-          </br>
+        <div class="col-sm-12">
 
           <!-- Profile -->
           <div class="card" id="profile">
@@ -56,9 +57,13 @@
                         <input id="lastname" name="lastname" type="text" class="form-control" value="">
                       </div>
                       <div class="form-group col-md-6">
-                        <label for="inputEmail4">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4" value="">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" value="">
                       </div>
+                      <div class="form-group col-md-6">
+                          <label for="phone">Phone</label>
+                          <input type="number" class="form-control" id="phone" value="">
+                        </div>
 
                     </div>
                     <div class="form-group">

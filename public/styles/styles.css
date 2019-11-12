@@ -58,3 +58,7 @@ a {
 body {
   font-family: "Montserrat", sans-serif;
 }
+
+.card {
+  background-color: paleturquoise;
+}
