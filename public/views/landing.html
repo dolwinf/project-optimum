@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <title>SwapZ</title>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>SwapZ</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/lumen/bootstrap.min.css" />
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -26,6 +26,16 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Listing</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link addItem" href="#">Add Item</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link editProfile" href="#">Edit Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link logout" href="#">Logout</a>
+        </li>
+
         <!-- <li class="nav-item">
           <a class="nav-link" href="/login">Login</a>
         </li>
@@ -36,12 +46,17 @@
     </div>
   </nav>
   <div class="container-fluid">
-  </br>
-    <div style="text-align: right">
-      <h4>Welcome! You are now logged in.</h1>
-      <span><button class="btn btn-primary addItem">Add Item</button></span>
-      <span><button class="btn btn-primary editProfile">Edit Profile</button></span>
-      <span><button class="btn btn-primary logout">Logout</button></span>
+    </br>
+
+    <h4 style="text-align: center">Welcome! You are now logged in.</h1>
+
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card-deck">
+        <div id="items">
+        </div>
+      </div>
     </div>
     <div id="items"></div>
   </div>

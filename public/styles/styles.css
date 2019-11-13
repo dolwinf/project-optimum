@@ -100,3 +100,30 @@ margin: 0 auto;
 margin-top: 5px;
 }
 
+#items {
+  display: block;
+  margin: auto;
+}
+
+.card-img-top {
+  height: 250px;
+  width: 250px;
+}
+
+.card-body {
+  background-color: white;
+    width: 800px;
+}
+
+.cardcustom {
+  flex-direction: row;
+  width:100%;
+}
+
+.modal-header {
+  background-color:#f7b733;
+}
+.modal-title {
+  color:#fe491a;
+  font-weight: 800;
+}
