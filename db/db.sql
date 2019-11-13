@@ -8,7 +8,7 @@ create table user (
         LastName varchar(50) not null,
         Email varchar(50) not null,
         Mobile integer(10),
-        HomeAddress varchar(50),
+        HomeAddress text(500),
 		PostalAddress varchar(50),
 		Password varchar(20)
 );
