@@ -22,7 +22,17 @@ window.onload = function() {
         "</h5><p class='card-text'>" +
         item.Description +
         "</p><a href='#' class='btn btn-primary'>Swapz It!</a></div></div>";
-      $("#items").append(result);
+      $("#items").prepend(result);
     });
   });
 };
+
+$(".editProfile").on("click", function(e) {
+  e.preventDefault();
+  window.location.href = "/profile";
+});
+
+$(".addItem").on("click", function(e) {
+  e.preventDefault();
+  window.location.href = "/addItem";
+});
