@@ -38,24 +38,21 @@ window.onload = function() {
     $("#lastname").val(data.lastName);
     $("#phone").val(data.mobile);
     $("#inputAddress").val(data.homeAddress);
-   
   });
 };
 
-$("#create-item").on("click", function(e){
+$("#create-item").on("click", function(e) {
   e.preventDefault();
   var newItem = {
-    itemName:  $("#item-name").val(),
+    itemName: $("#item-name").val(),
     itemURL: $("#item-url").val(),
     itemDescription: $("#item-description").val()
   };
-$.ajax({
-  method: "POST",
-  url: "/createItem",
-  data: newItem
-}).then(function(){
-  window.location.href = "/landing";
-});
-  
-
+  $.ajax({
+    method: "POST",
+    url: "/createItem",
+    data: newItem
+  }).then(function() {
+    window.location.href = "/landing";
+  });
 });

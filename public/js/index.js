@@ -3,7 +3,7 @@ $(".registerbtn").on("click", function(e) {
   var userData = {
     firstName: $("#FirstName").val(),
     lastName: $("#LastName").val(),
-    email: $("#email").val(),
+    email: $("#Email").val(),
     // mobile: $("#mobile").val(),
     // homeAddress: $("#Home").val(),
     // postalAddress: $("#Post").val(),

@@ -68,8 +68,8 @@ module.exports = function(app) {
             .create({
               email: email,
               password: hash,
-              firstName,
-              lastName
+              firstName: firstName,
+              lastName: lastName
             })
             .then(function(data) {
               var id = data.dataValues.id;
@@ -131,15 +131,17 @@ module.exports = function(app) {
       });
   });
 
-  app.post("/createItem", function(req, res){
-    db.item.create({
-      Name: req.body.itemName,
-      Description: req.body.itemDescription,
-      ImageURL: req.body.itemURL
-    }).then(function(data){
-      console.log(data)
-    })
-  })
+  app.post("/createItem", function(req, res) {
+    db.item
+      .create({
+        Name: req.body.itemName,
+        Description: req.body.itemDescription,
+        ImageURL: req.body.itemURL
+      })
+      .then(function(data) {
+        res.json(data);
+      });
+  });
 
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
