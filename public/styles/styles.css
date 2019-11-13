@@ -29,7 +29,7 @@ body {
   font-weight: bold;
 }
 
-.loginbtn {
+.loginbtn, .registerbtn, .profilebtn {
   background-color: #f7b733;
   border-color: #f7b733;
 }
