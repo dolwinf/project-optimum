@@ -42,7 +42,7 @@
                             <div class="col-md">
                                 <div class="card-body">
 
-                                    <form method="POST" action="/api/register" autocomplete="off">
+                                    <form action="/api/register" autocomplete="off">
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="FirstName">First Name</label>
@@ -72,13 +72,13 @@
                                                 <label for="password">Re-Enter
                                                     Password</label>
                                                 <input type="password" class="form-control" id="reEnterPassword"
-                                                    placeholder="Password" />
+                                                    placeholder="Password"/>
                                             </div>
                                         </div>
-                                        <div class="form-row">
+                                        <!-- <div class="form-row">
                                             <button type="submit" class="btn btn-primary"
                                                 id="profile-save">Save</button>
-                                        </div>
+                                        </div> -->
                                     </form>
 
                                 </div>
@@ -87,9 +87,9 @@
                     </div>
                     </br>
                     <button type="submit" class="btn btn-primary registerbtn" style="width: 200px;" value="submit">
-                        Login
+                        Register
                     </button>
-                    <p>Already have an account? <a href="login.html">Login</a></p>
+                    <p>Already have an account? <a href="/login">Login</a></p>
                 </div>
             </div>
             <script src="../js/index.js" type="text/javascript"></script>
