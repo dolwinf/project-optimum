@@ -43,6 +43,7 @@ body {
 .swapnav {
   border-bottom: 6px solid #f7b733;
   background: white;
+  color: #fe491a;
 }
 
 a {
@@ -66,9 +67,7 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-.card {
-  background-color: paleturquoise;
-}
+
 
 .banner-index {
   height: 100%;
@@ -111,7 +110,7 @@ body {
 
 .card-body {
   background-color: white;
-  width: 800px;
+ 
 }
 
 .cardcustom {
