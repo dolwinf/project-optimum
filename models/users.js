@@ -8,9 +8,16 @@ module.exports = function(sequelize, DataTypes) {
     },
     mobile: DataTypes.INTEGER,
     homeAddress: DataTypes.STRING,
-    postalAddress: DataTypes.STRING,
-    suburb: DataTypes.STRING,
     password: DataTypes.STRING
   });
+
+  user.associate = function(models) {
+    // Associating user with Posts
+    // When an user is deleted, also delete any associated Posts
+    user.hasMany(models.item, {
+      onDelete: "cascade"
+    });
+  };
+
   return user;
 };

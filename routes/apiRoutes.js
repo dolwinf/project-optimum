@@ -87,7 +87,10 @@ module.exports = function(app) {
   );
 
   app.get("/getdata", function(req, res) {
-    db.item.findAll({}).then(function(data) {
+    db.item.findAll({
+      where: 
+    }).then(function(data) {
+      console.log(data);
       res.json(data);
     });
   });
@@ -136,7 +139,8 @@ module.exports = function(app) {
       .create({
         Name: req.body.itemName,
         Description: req.body.itemDescription,
-        ImageURL: req.body.itemURL
+        ImageURL: req.body.itemURL,
+        userId: req.body.id
       })
       .then(function(data) {
         res.json(data);

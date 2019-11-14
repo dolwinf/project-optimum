@@ -46,7 +46,8 @@ $("#create-item").on("click", function(e) {
   var newItem = {
     itemName: $("#item-name").val(),
     itemURL: $("#item-url").val(),
-    itemDescription: $("#item-description").val()
+    itemDescription: $("#item-description").val(),
+    id: localStorage.getItem("id")
   };
   $.ajax({
     method: "POST",

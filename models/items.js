@@ -1,12 +1,18 @@
 module.exports = function(sequelize, DataTypes) {
   var item = sequelize.define("item", {
-    Category: DataTypes.INTEGER,
     Name: DataTypes.STRING,
     Description: DataTypes.STRING,
-    Status: DataTypes.STRING,
-    ImageURL: DataTypes.STRING,
-    UserID: DataTypes.INTEGER
+    ImageURL: DataTypes.STRING
   });
+
+  item.associate = function(models) {
+    item.belongsTo(models.user, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
   return item;
 };
 

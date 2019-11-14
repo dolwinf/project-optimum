@@ -9,6 +9,7 @@ $(".logout").on("click", function(e) {
 });
 
 window.onload = function() {
+  var id = this.localStorage.getItem("id");
   $.ajax({
     method: "GET",
     url: "/getdata"
