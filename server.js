@@ -18,8 +18,8 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync({ force: true }).then(function () {
-  app.listen(PORT, function () {
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
     console.log("Listening on port", PORT);
   });
 });
