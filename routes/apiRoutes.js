@@ -4,14 +4,14 @@ var { check, validationResult } = require("express-validator");
 var jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth");
 
-module.exports = function(app) {
+module.exports = function (app) {
   app.post(
     "/api/login",
     [
       check("email", "Email is required").isEmail(),
       check("password", "Password is required").isLength({ min: 6 })
     ],
-    function(req, res) {
+    function (req, res) {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
@@ -23,14 +23,14 @@ module.exports = function(app) {
             email: req.body.email
           }
         })
-        .then(function(data) {
+        .then(function (data) {
           // res.json(data);
 
           //Grab the user's details from the response
           var id = data.dataValues.id;
           var password = data.dataValues.password;
 
-          bcrypt.compare(req.body.password, password, function(err, resp) {
+          bcrypt.compare(req.body.password, password, function (err, resp) {
             if (!resp) {
               res.send("Password incorrect");
             } else {
@@ -53,7 +53,7 @@ module.exports = function(app) {
       check("password", "Password is required").isLength({ min: 6 }),
       check("passwordr", "Please re-enter your password").isLength({ min: 6 })
     ],
-    function(req, res) {
+    function (req, res) {
       var firstName = req.body.firstName;
       var lastName = req.body.lastName;
       var email = req.body.email;
@@ -63,7 +63,7 @@ module.exports = function(app) {
       if (password !== passwordr) {
         res.json("Error: Passwords do no match");
       } else {
-        bcrypt.hash(password, 10).then(function(hash) {
+        bcrypt.hash(password, 10).then(function (hash) {
           db.user
             .create({
               email: email,
@@ -71,7 +71,7 @@ module.exports = function(app) {
               firstName: firstName,
               lastName: lastName
             })
-            .then(function(data) {
+            .then(function (data) {
               var id = data.dataValues.id;
 
               var token = jwt.sign({ user: id }, "secret", {
@@ -86,33 +86,35 @@ module.exports = function(app) {
     }
   );
 
-  app.get("/getdata", function(req, res) {
+  app.get("/getdata", function (req, res) {
     db.item.findAll({
-      where: 
-    }).then(function(data) {
+      include: [
+        { model: db.user }
+      ],
+    }).then(function (data) {
       console.log(data);
       res.json(data);
     });
   });
 
-  app.get("/users/:email", function(req, res) {
+  app.get("/users/:email", function (req, res) {
     db.user
       .findOne({
         where: {
           email: req.params.email
         }
       })
-      .then(function(data) {
+      .then(function (data) {
         res.json(data);
       });
   });
-  app.get("/logout", function(req, res) {
+  app.get("/logout", function (req, res) {
     res.clearCookie("token");
     res.clearCookie("localhost");
     res.end();
   });
 
-  app.post("/editProfile", function(req, res) {
+  app.post("/editProfile", function (req, res) {
     console.log(req);
     db.user
       .update(
@@ -129,12 +131,12 @@ module.exports = function(app) {
           }
         }
       )
-      .then(function(data) {
+      .then(function (data) {
         res.json(data);
       });
   });
 
-  app.post("/createItem", function(req, res) {
+  app.post("/createItem", function (req, res) {
     db.item
       .create({
         Name: req.body.itemName,
@@ -142,13 +144,13 @@ module.exports = function(app) {
         ImageURL: req.body.itemURL,
         userId: req.body.id
       })
-      .then(function(data) {
+      .then(function (data) {
         res.json(data);
       });
   });
 
   // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
+  app.delete("/api/examples/:id", function (req, res) {
     // db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
     //   res.json(dbExample);
     // });

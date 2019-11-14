@@ -1,20 +1,22 @@
-$(".logout").on("click", function(e) {
+$(".logout").on("click", function (e) {
   e.preventDefault();
   $.ajax({
     method: "GET",
     url: "/logout"
-  }).then(function() {
+  }).then(function () {
     window.location.href = "/";
   });
 });
 
-window.onload = function() {
+window.onload = function () {
   var id = this.localStorage.getItem("id");
   $.ajax({
     method: "GET",
     url: "/getdata"
-  }).then(function(data) {
-    data.forEach(function(item) {
+  }).then(function (data) {
+    data.forEach(function (item) {
+
+      console.log(item)
       var firstName = "Tom";
       var lastName = "Smith";
       var mobile = "0468 555 123";
@@ -28,23 +30,22 @@ window.onload = function() {
         item.Name +
         "</h5><p class='card-text'>" +
         item.Description +
-        "</p><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModal'>Swapz It!</button></div></div>" +
-        "<div class='modal fade' id='exampleModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-header'><h5 class='modal-title' id='exampleModalLabel'>" +
-        item.Name +
+        "</p><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModal" + item.id + "'>Swapz It!</button></div></div>" +
+        "<div class='modal fade' id='exampleModal" + item.id + "' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-header'><h5 class='modal-title' id='exampleModalLabel'>" +
+        item.user.firstName +
         "</h5><button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div><div class='modal-body'> Exchanger details:</br>" +
         "Name: " +
-        firstName +
+        item.user.firstName +
         " " +
-        lastName +
+        item.user.lastName +
         "</br>" +
         "Mobile: " +
-        mobile +
+        item.user.mobile +
         "</br>" +
         "Email: " +
-        email +
+        item.user.email +
         "</br>" +
-        "Home Address: " +
-        homeAddress +
+
         "</div><div class='modal-footer'><button type='button' class='btn btn-info' data-dismiss='modal'>Close</button>";
 
       $("#items").prepend(result);
@@ -52,12 +53,14 @@ window.onload = function() {
   });
 };
 
-$(".editProfile").on("click", function(e) {
+$(".editProfile").on("click", function (e) {
   e.preventDefault();
   window.location.href = "/profile";
 });
 
-$(".addItem").on("click", function(e) {
+$(".addItem").on("click", function (e) {
   e.preventDefault();
   window.location.href = "/addItem";
 });
+
+
