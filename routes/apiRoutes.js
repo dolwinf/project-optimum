@@ -87,9 +87,7 @@ module.exports = function(app) {
   );
 
   app.get("/getdata", function(req, res) {
-    db.item.findAll({
-      where: 
-    }).then(function(data) {
+    db.item.findAll({}).then(function(data) {
       console.log(data);
       res.json(data);
     });
