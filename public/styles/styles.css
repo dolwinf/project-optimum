@@ -25,11 +25,13 @@ body {
 }
 
 .card-title {
-  color: #f7b733;
+  color: black;
   font-weight: bold;
 }
 
-.loginbtn, .registerbtn, .profilebtn {
+.loginbtn,
+.registerbtn,
+.profilebtn {
   background-color: #f7b733;
   border-color: #f7b733;
 }
@@ -68,36 +70,33 @@ body {
   background-color: paleturquoise;
 }
 
-
-
 .banner-index {
   height: 100%;
   background-size: contain;
   background-position: center;
-
 }
 .banner2 {
-  background-color:#f7b733;
+  background-color: #f7b733;
   position: absolute;
   left: 50%;
   top: 56%;
   transform: translate(-50%, -50%);
-  height:300px;
+  height: 300px;
   padding: 30px;
 }
 .bannerTitle {
-  color:#fe491a;
+  color: #fe491a;
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 30px;
-  font-weight:bolder;
+  font-weight: bolder;
   width: 100%;
 }
 
 .indexbutton {
-width: 70%;
-margin: 0 auto;
-margin-top: 5px;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 5px;
 }
 
 #items {
@@ -112,18 +111,18 @@ margin-top: 5px;
 
 .card-body {
   background-color: white;
-    width: 800px;
+  width: 800px;
 }
 
 .cardcustom {
   flex-direction: row;
-  width:100%;
+  width: 100%;
 }
 
 .modal-header {
-  background-color:#f7b733;
+  background-color: #f7b733;
 }
 .modal-title {
-  color:#fe491a;
+  color: #fe491a;
   font-weight: 800;
 }
