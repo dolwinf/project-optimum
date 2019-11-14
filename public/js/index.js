@@ -13,6 +13,7 @@ $(".registerbtn").on("click", function(e) {
   $.post("/api/register", userData).then(function(data) {
     console.log(data);
     localStorage.setItem("email", data.email);
+    localStorage.setItem("id", data.id);
     window.location.href = "/landing";
   });
 });
@@ -30,6 +31,7 @@ $(".loginbtn").on("click", function(e) {
   }).then(function(data) {
     console.log(data);
     localStorage.setItem("email", data.email);
+    localStorage.setItem("id", data.id);
     window.location.href = "/landing";
   });
 });
