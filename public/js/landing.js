@@ -45,8 +45,7 @@ window.onload = function () {
         "Email: " +
         item.user.email +
         "</br>" +
-        "Home Address: " +
-        item.user.homeAddress +
+
         "</div><div class='modal-footer'><button type='button' class='btn btn-info' data-dismiss='modal'>Close</button>";
 
       $("#items").prepend(result);
