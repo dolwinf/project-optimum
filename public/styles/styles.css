@@ -25,8 +25,9 @@ body {
 }
 
 .card-title {
-  color: black;
-  font-weight: bold;
+  color: #fe491a;
+    font-weight: bolder;
+}
 }
 
 .loginbtn,
@@ -43,7 +44,9 @@ body {
 .swapnav {
   border-bottom: 6px solid #f7b733;
   background: white;
-  color: #fe491a;
+}
+.swapnav a {
+  color: #fe491a !important;
 }
 
 a {
@@ -66,8 +69,6 @@ a {
 body {
   font-family: "Montserrat", sans-serif;
 }
-
-
 
 .banner-index {
   height: 100%;
@@ -119,9 +120,31 @@ body {
 }
 
 .modal-header {
-  background-color: #f7b733;
+  background-color: #58c2b4;;
 }
 .modal-title {
-  color: #fe491a;
+ 
   font-weight: 800;
 }
+
+.custom-toggler.navbar-toggler {
+  border: 2px solid #f7b733;
+}
+
+.far.fa-address-book {
+  color: #58c2b4;
+  font-size: 80px;
+  width: 100%;
+  text-align: center
+}
+.fas.fa-exchange-alt {
+  margin-left: 10px;
+}
+
+.fas.fa-plus,
+.fas.fa-glass-cheers,
+.fas.fa-sign-in-alt 
+{
+  margin-right: 5px;
+}
+
