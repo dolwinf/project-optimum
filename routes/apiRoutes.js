@@ -93,6 +93,14 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/getUserID", function(req, res) {
+    db.user.findOne({
+      where: {
+        id: req.body.id
+      }
+    });
+  });
+
   app.get("/users/:email", function(req, res) {
     db.user
       .findOne({

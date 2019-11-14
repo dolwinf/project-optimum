@@ -46,25 +46,13 @@ $(".addItem").on("click", function(e) {
 });
 
 $(".swapz").on("click", function(e) {
+  var id = $(this).attr("id");
   e.preventDefault();
-  $akax();
+  $ajax({
+    url: "/getUserID",
+    method: "GET",
+    data: id
+  }).then(function(data) {
+    console.log(data);
+  });
 });
-
-// var firstName = "Tom";
-//       var lastName = "Smith";
-//       var mobile = "0468 555 123";
-//       var email = "tom@gmail.com";
-//       var homeAddress = "89/290 Kents St, Sydney NSW 2000, Australia";
-// "Name: " +
-// firstName +
-// " " +
-// lastName +
-// "</br>" +
-// "Mobile: " +
-// mobile +
-// "</br>" +
-// "Email: " +
-// email +
-// "</br>" +
-// "Home Address: " +
-// homeAddress +
