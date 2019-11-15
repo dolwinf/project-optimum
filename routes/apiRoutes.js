@@ -92,7 +92,6 @@ module.exports = function(app) {
         include: [{ model: db.user }]
       })
       .then(function(data) {
-        console.log(data);
         res.json(data);
       });
   });
@@ -122,15 +121,16 @@ module.exports = function(app) {
   });
 
   app.get("/items", function(req, res) {
-    db.item
-      .findAll({
-        where: {
-          id: req.body.itemID
-        }
-      })
-      .then(function(data) {
-        res.json(data);
-      });
+    console.log(req.body.itemID);
+    // db.item
+    //   .findAll({
+    //     where: {
+    //       id: req.body.itemID
+    //     }
+    //   })
+    //   .then(function(data) {
+    //     res.json(data);
+    //   });
   });
 
   app.get("/logout", function(req, res) {
@@ -140,7 +140,6 @@ module.exports = function(app) {
   });
 
   app.post("/editProfile", function(req, res) {
-    console.log(req);
     db.user
       .update(
         {
@@ -175,7 +174,6 @@ module.exports = function(app) {
   });
 
   app.post("/delete", function(req, res) {
-    console.log("BODY: ", req.body);
     db.item
       .destroy({
         where: {

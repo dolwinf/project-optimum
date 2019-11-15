@@ -18,16 +18,17 @@ function checkOwner(item, id) {
         item.id +
         " style='margin-top: 15%'>Delete</button>"
     );
-    $(".editItem").on("click", function() {
-      var editItemID = $(this).attr("id");
-
-      $.post("/items", { editItemID: editItemID }).then(function(data) {
-        localStorage.setItem("itemID", data.id);
-
-        window.location.href = "/editItem";
-      });
-    });
   }
+
+  $(".editItem").on("click", function() {
+    var editItemID = $(this).attr("id");
+
+    $.post("/items", { editItemID: editItemID }).then(function(data) {
+      localStorage.setItem("itemID", data[0].id);
+      window.location.href = "/editItem";
+    });
+  });
+
   $(".deleteItem").on("click", function(e) {
     e.preventDefault();
 
