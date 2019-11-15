@@ -1,9 +1,9 @@
-$(".logout").on("click", function (e) {
+$(".logout").on("click", function(e) {
   e.preventDefault();
   $.ajax({
     method: "GET",
     url: "/logout"
-  }).then(function () {
+  }).then(function() {
     window.location.href = "/";
   });
 });
@@ -11,36 +11,45 @@ $(".logout").on("click", function (e) {
 function checkOwner(item, id) {
   if (item.userId == id) {
     $("#deleteButton").append(
-      "<button class='btn btn-danger deleteItem' id=" +
-      item.id +
-      " style='margin-top: 15%'>Delete</button>"
+      "<button class='btn btn-warning editItem' id=" +
+        item.id +
+        " style='margin-top: 15%'>Edit</button><br>" +
+        "<button class='btn btn-danger deleteItem' id=" +
+        item.id +
+        " style='margin-top: 15%'>Delete</button>"
     );
+    $(".editItem").on("click", function() {
+      var editItemID = $(this).attr("id");
+
+      $.post("/items", { editItemID: editItemID }).then(function(data) {
+        localStorage.setItem("itemID", data.id);
+
+        window.location.href = "/editItem";
+      });
+    });
   }
-  $(".deleteItem").on("click", function (e) {
+  $(".deleteItem").on("click", function(e) {
     e.preventDefault();
-    console.log("clicked");
+
     var itemID = $(this).attr("id");
 
     $.ajax({
       url: "/delete",
       method: "POST",
       data: { id: itemID }
-    }).then(function (e) {
-      console.log("Why am i not deleted?");
+    }).then(function(e) {
       window.location.href = "/landing";
     });
   });
 }
 
-window.onload = function () {
+window.onload = function() {
   var id = this.localStorage.getItem("id");
   $.ajax({
     method: "GET",
     url: "/getdata"
-  }).then(function (data) {
-    data.forEach(function (item) {
-      console.log(item);
-
+  }).then(function(data) {
+    data.forEach(function(item) {
       var result =
         "<div class='card' style='flex-direction: row;margin: 2.5rem; max-width: 900px;'><img src=" +
         item.ImageURL +
@@ -76,12 +85,12 @@ window.onload = function () {
   });
 };
 
-$(".editProfile").on("click", function (e) {
+$(".editProfile").on("click", function(e) {
   e.preventDefault();
   window.location.href = "/profile";
 });
 
-$(".addItem").on("click", function (e) {
+$(".addItem").on("click", function(e) {
   e.preventDefault();
   window.location.href = "/addItem";
 });

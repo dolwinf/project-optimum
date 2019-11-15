@@ -11,6 +11,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/views/landing.html"));
   });
 
+  app.get("/editItem", auth, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/views/editItem.html"));
+  });
+
   app.get("/addItem", auth, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/views/addItem.html"));
   });

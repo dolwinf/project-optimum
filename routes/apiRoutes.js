@@ -108,6 +108,31 @@ module.exports = function(app) {
         res.json(data);
       });
   });
+
+  app.post("/items", function(req, res) {
+    db.item
+      .findAll({
+        where: {
+          id: req.body.editItemID
+        }
+      })
+      .then(function(data) {
+        res.json(data);
+      });
+  });
+
+  app.get("/items", function(req, res) {
+    db.item
+      .findAll({
+        where: {
+          id: req.body.itemID
+        }
+      })
+      .then(function(data) {
+        res.json(data);
+      });
+  });
+
   app.get("/logout", function(req, res) {
     res.clearCookie("token");
     res.clearCookie("localhost");
