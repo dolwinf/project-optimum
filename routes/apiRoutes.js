@@ -121,16 +121,15 @@ module.exports = function(app) {
   });
 
   app.get("/items", function(req, res) {
-    console.log(req.body.itemID);
-    // db.item
-    //   .findAll({
-    //     where: {
-    //       id: req.body.itemID
-    //     }
-    //   })
-    //   .then(function(data) {
-    //     res.json(data);
-    //   });
+    db.item
+      .findOne({
+        where: {
+          id: req.body.id
+        }
+      })
+      .then(function(data) {
+        res.json(data);
+      });
   });
 
   app.get("/logout", function(req, res) {

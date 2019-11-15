@@ -1,9 +1,10 @@
-function getID() {
-  var itemID = localStorage.getItem("itemID");
+var id = localStorage.getItem("itemID");
+
+function getID(id) {
   $.ajax({
     method: "GET",
     url: "/items",
-    data: { itemID: itemID }
+    data: { id: id }
   }).then(function(data) {
     console.log(data[0]);
     $("#item-name").val(data[0].Name);
@@ -12,7 +13,7 @@ function getID() {
   });
 }
 
-getID();
+getID(id);
 
 $("#saveItem").on("click", function() {
   var editedObject = {
