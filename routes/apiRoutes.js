@@ -92,7 +92,6 @@ module.exports = function(app) {
         include: [{ model: db.user }]
       })
       .then(function(data) {
-        console.log(data);
         res.json(data);
       });
   });
@@ -108,6 +107,48 @@ module.exports = function(app) {
         res.json(data);
       });
   });
+
+  app.post("/items", function(req, res) {
+    db.item
+      .update(
+        {
+          Name: req.body.Name,
+          Description: req.body.Description,
+          ImageURL: req.body.ImageURL
+        },
+        {
+          where: {
+            id: req.body.id
+          }
+        }
+      )
+      .then(function(data) {
+        res.json({ redirect: "/landing" });
+      });
+  });
+  app.post("/editItems", function(req, res) {
+    db.item
+      .findAll({
+        where: {
+          id: req.body.editItemID
+        }
+      })
+      .then(function(data) {
+        res.json(data);
+      });
+  });
+  app.get("/items/:id", function(req, res) {
+    db.item
+      .findOne({
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(function(data) {
+        res.json(data);
+      });
+  });
+
   app.get("/logout", function(req, res) {
     res.clearCookie("token");
     res.clearCookie("localhost");
@@ -115,7 +156,6 @@ module.exports = function(app) {
   });
 
   app.post("/editProfile", function(req, res) {
-    console.log(req);
     db.user
       .update(
         {
@@ -150,7 +190,6 @@ module.exports = function(app) {
   });
 
   app.post("/delete", function(req, res) {
-    console.log("BODY: ", req.body);
     db.item
       .destroy({
         where: {
