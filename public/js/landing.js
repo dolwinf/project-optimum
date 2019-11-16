@@ -13,10 +13,10 @@ function checkOwner(item, id) {
     $("#deleteButton").append(
       "<button class='btn btn-warning editItem' id=" +
         item.id +
-        " style='margin-top: 15%'>Edit</button><br>" +
+        " style='margin-top: 8%; margin-right:4%'>Edit</button>" +
         "<button class='btn btn-danger deleteItem' id=" +
         item.id +
-        " style='margin-top: 15%'>Delete</button>"
+        " style='margin-top: 8%'>Delete</button>"
     );
   }
 
@@ -53,9 +53,9 @@ window.onload = function() {
   }).then(function(data) {
     data.forEach(function(item) {
       var result =
-        "<div class='card' style='flex-direction: row;margin: 2.5rem; max-width: 900px;'><img src=" +
+        "<div class='card' style='flex-direction: row;margin: 2.5rem; max-width: 1000px;'><img src=" +
         item.ImageURL +
-        " class='card-img-top' alt='...'><div class='card-body' style='background-color:lightyellow'><h5 class='card-title'>" +
+        " class='card-img-top' style='width: 300px'alt='...'><div class='card-body' style='background-color:lightyellow'><h5 class='card-title'>" +
         item.Name +
         "</h5><p class='card-text'>" +
         item.Description +
