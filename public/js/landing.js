@@ -23,7 +23,8 @@ function checkOwner(item, id) {
   $(".editItem").on("click", function() {
     var editItemID = $(this).attr("id");
 
-    $.post("/items", { editItemID: editItemID }).then(function(data) {
+    $.post("/editItems", { editItemID: editItemID }).then(function(data) {
+      console.log(data);
       localStorage.setItem("itemID", data[0].id);
       window.location.href = "/editItem";
     });

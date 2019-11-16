@@ -110,6 +110,24 @@ module.exports = function(app) {
 
   app.post("/items", function(req, res) {
     db.item
+      .update(
+        {
+          Name: req.body.Name,
+          Description: req.body.Description,
+          ImageURL: req.body.ImageURL
+        },
+        {
+          where: {
+            id: req.body.id
+          }
+        }
+      )
+      .then(function(data) {
+        res.json({ redirect: "/landing" });
+      });
+  });
+  app.post("/editItems", function(req, res) {
+    db.item
       .findAll({
         where: {
           id: req.body.editItemID
@@ -119,12 +137,11 @@ module.exports = function(app) {
         res.json(data);
       });
   });
-
-  app.get("/items", function(req, res) {
+  app.get("/items/:id", function(req, res) {
     db.item
       .findOne({
         where: {
-          id: req.body.id
+          id: req.params.id
         }
       })
       .then(function(data) {
