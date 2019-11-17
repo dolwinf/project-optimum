@@ -13,7 +13,7 @@ $(".registerbtn").on("click", function(e) {
   if (userData.password !== userData.passwordr) {
     $("#errors").empty();
     $("#errors").append(
-      "<p style='color: red; font-weight: bold'>Password don't match</p>"
+      "<p style='color: red; font-weight: bold'>Passwords don't match</p>"
     );
   } else if (
     userData.email == null ||
@@ -22,7 +22,7 @@ $(".registerbtn").on("click", function(e) {
   ) {
     $("#errors").empty();
     $("#errors").append(
-      "<p style='color: red; font-weight: bold'>Please enter a email to register</p>"
+      "<p style='color: red; font-weight: bold'>Please enter an email to register</p>"
     );
   } else if (
     userData.password == null ||
@@ -35,13 +35,11 @@ $(".registerbtn").on("click", function(e) {
     );
   } else {
     $.post("/api/register", userData).then(function(data) {
-      if (data.errors) {
+      if (Array.isArray(data.errors)) {
         $("#errors").empty();
-        data.errors.errors.forEach(function(item) {
-          $("#errors").append(
-            "<p style='color: red; font-weight: bold'>" + item.msg + "</p>"
-          );
-        });
+        $("#errors").append(
+          "<p style='color: red; font-weight: bold'>Email already exists</p>"
+        );
       } else {
         localStorage.setItem("email", data.email);
         localStorage.setItem("id", data.id);
@@ -66,13 +64,13 @@ $(".loginbtn").on("click", function(e) {
   ) {
     $("#errors1").empty();
     $("#errors1").append(
-      "<p style='color: red; font-weight: bold'>Please enter a valid sername and password</p>"
+      "<p style='color: red; font-weight: bold'>Please enter a valid username and password</p>"
     );
   } else {
     $.post("/api/login", loginData).then(function(data) {
-      console.log(data.errors);
       if (data.errors) {
         $("#errors1").empty();
+
         data.errors.errors.forEach(function(item) {
           $("#errors1").append(
             "<p style='color: red; font-weight: bold'>" + item.msg + "</p>"
