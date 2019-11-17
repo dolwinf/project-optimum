@@ -50,6 +50,7 @@ module.exports = function(app) {
       if (!errors.isEmpty()) {
         return res.status(422).json({ errors: errors.array() });
       }
+
       var firstName = req.body.firstName;
       var lastName = req.body.lastName;
       var email = req.body.email;
@@ -76,6 +77,10 @@ module.exports = function(app) {
 
               res.cookie("token", token);
               res.json(data);
+            })
+            .catch(function(err) {
+              console.log(err);
+              res.json(err);
             });
         });
       }
