@@ -7,16 +7,8 @@ const auth = require("../middleware/auth");
 module.exports = function(app) {
   app.post(
     "/api/login",
-    [
-      check("email", "Email is required").isEmail(),
-      check("password", "Password is required").isLength({ min: 6 })
-    ],
-    function(req, res) {
-      const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-      }
 
+    function(req, res) {
       db.user
         .findOne({
           where: {
@@ -54,6 +46,10 @@ module.exports = function(app) {
       check("passwordr", "Please re-enter your password").isLength({ min: 6 })
     ],
     function(req, res) {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(422).json({ errors: errors.array() });
+      }
       var firstName = req.body.firstName;
       var lastName = req.body.lastName;
       var email = req.body.email;
@@ -86,7 +82,7 @@ module.exports = function(app) {
     }
   );
 
-  app.get("/getdata", function(req, res) {
+  app.get("/getdata", auth, function(req, res) {
     db.item
       .findAll({
         include: [{ model: db.user }]
@@ -108,7 +104,7 @@ module.exports = function(app) {
       });
   });
 
-  app.post("/items", function(req, res) {
+  app.post("/items", auth, function(req, res) {
     db.item
       .update(
         {
@@ -126,7 +122,7 @@ module.exports = function(app) {
         res.json({ redirect: "/landing" });
       });
   });
-  app.post("/editItems", function(req, res) {
+  app.post("/editItems", auth, function(req, res) {
     db.item
       .findAll({
         where: {
@@ -137,7 +133,7 @@ module.exports = function(app) {
         res.json(data);
       });
   });
-  app.get("/items/:id", function(req, res) {
+  app.get("/items/:id", auth, function(req, res) {
     db.item
       .findOne({
         where: {
@@ -155,7 +151,7 @@ module.exports = function(app) {
     res.end();
   });
 
-  app.post("/editProfile", function(req, res) {
+  app.post("/editProfile", auth, function(req, res) {
     db.user
       .update(
         {
@@ -176,7 +172,7 @@ module.exports = function(app) {
       });
   });
 
-  app.post("/createItem", function(req, res) {
+  app.post("/createItem", auth, function(req, res) {
     db.item
       .create({
         Name: req.body.itemName,
@@ -189,7 +185,7 @@ module.exports = function(app) {
       });
   });
 
-  app.post("/delete", function(req, res) {
+  app.post("/delete", auth, function(req, res) {
     db.item
       .destroy({
         where: {

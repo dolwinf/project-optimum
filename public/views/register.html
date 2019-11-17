@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/lumen/bootstrap.min.css" />
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+    
+    
     <script src="https://kit.fontawesome.com/da2b48d07d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../styles/styles.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
@@ -26,7 +29,7 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <!-- <li class="nav-item">
-              <a class="nav-link" href="#">Listing</a>
+              <a class="nav-link" href="/listing">Listing</a>
             </li> -->
                 <li class="nav-item">
                     <a class="nav-link" href="/login">Login</a>
@@ -82,16 +85,19 @@
                                                     placeholder="Password" />
                                             </div>
                                         </div>
-                                    </form>
+                                        <button type="submit" class="btn registerbtn" style="width: 200px;" >
+                                            Register
+                                        </button>
+                                    </form><br>
+                                    <div id="errors">
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     </br>
-                    <button type="submit" class="btn registerbtn" style="width: 200px;" value="submit">
-                        Register
-                    </button>
+                    
                     <p>Already have an account? <a href="/login">Login</a></p>
                 </div>
             </div>
