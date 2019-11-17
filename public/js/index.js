@@ -10,12 +10,45 @@ $(".registerbtn").on("click", function(e) {
     password: $("#password").val(),
     passwordr: $("#reEnterPassword").val()
   };
-  $.post("/api/register", userData).then(function(data) {
-    console.log(data);
-    localStorage.setItem("email", data.email);
-    localStorage.setItem("id", data.id);
-    window.location.href = "/landing";
-  });
+  if (userData.password !== userData.passwordr) {
+    $("#errors").empty();
+    $("#errors").append(
+      "<p style='color: red; font-weight: bold'>Password don't match</p>"
+    );
+  } else if (
+    userData.email == null ||
+    userData.email == undefined ||
+    userData.email == ""
+  ) {
+    $("#errors").empty();
+    $("#errors").append(
+      "<p style='color: red; font-weight: bold'>Please enter a email to register</p>"
+    );
+  } else if (
+    userData.password == null ||
+    userData.password == undefined ||
+    userData.password == ""
+  ) {
+    $("#errors").empty();
+    $("#errors").append(
+      "<p style='color: red; font-weight: bold'>Please enter a password</p>"
+    );
+  } else {
+    $.post("/api/register", userData).then(function(data) {
+      if (data.errors) {
+        $("#errors").empty();
+        data.errors.errors.forEach(function(item) {
+          $("#errors").append(
+            "<p style='color: red; font-weight: bold'>" + item.msg + "</p>"
+          );
+        });
+      } else {
+        localStorage.setItem("email", data.email);
+        localStorage.setItem("id", data.id);
+        window.location.href = "/landing";
+      }
+    });
+  }
 });
 
 $(".loginbtn").on("click", function(e) {
@@ -24,14 +57,32 @@ $(".loginbtn").on("click", function(e) {
     email: $("#email").val(),
     password: $("#password").val()
   };
-  $.ajax({
-    method: "POST",
-    url: "/api/login",
-    data: loginData
-  }).then(function(data) {
-    console.log(data);
-    localStorage.setItem("email", data.email);
-    localStorage.setItem("id", data.id);
-    window.location.href = "/landing";
-  });
+  if (
+    loginData.email == null ||
+    loginData.email == undefined ||
+    loginData.email == "" ||
+    loginData.password == null ||
+    loginData.password == undefined
+  ) {
+    $("#errors1").empty();
+    $("#errors1").append(
+      "<p style='color: red; font-weight: bold'>Please enter a valid sername and password</p>"
+    );
+  } else {
+    $.post("/api/login", loginData).then(function(data) {
+      console.log(data.errors);
+      if (data.errors) {
+        $("#errors1").empty();
+        data.errors.errors.forEach(function(item) {
+          $("#errors1").append(
+            "<p style='color: red; font-weight: bold'>" + item.msg + "</p>"
+          );
+        });
+      } else {
+        localStorage.setItem("email", data.email);
+        localStorage.setItem("id", data.id);
+        window.location.href = "/landing";
+      }
+    });
+  }
 });
